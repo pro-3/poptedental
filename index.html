@@ -205,11 +205,19 @@
   .doctor{background:var(--sky);}
   .doctor .wrap{display:grid;grid-template-columns:0.85fr 1.15fr;gap:56px;align-items:center;}
   .doc-photo{
-    border-radius:var(--radius);
-    aspect-ratio:3/4;
-    background:linear-gradient(150deg,#1a5478,#0F3D5C 65%);
-    position:relative;overflow:hidden;
-    box-shadow:var(--shadow);
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      aspect-ratio: 3/4;
+      box-shadow: var(--shadow);
+      background: #f5f5f5;
+  }
+
+  .doc-photo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
   }
   .doc-photo::after{
     content:"";position:absolute;inset:0;
@@ -523,26 +531,36 @@
 <section class="doctor pad" id="doctor">
   <div class="wrap">
     <div class="doc-photo">
+      <img src="doctor.webp" alt="Dr. Rehan Popte">
       <span class="tag">Dr. Rehan Popte</span>
     </div>
+
     <div>
       <p class="eyebrow">About Your Dentist</p>
       <h2 class="doctor-name">Dr. Rehan Popte</h2>
       <p class="doctor-role">BDS (MUHS, Pune) · Reg. No. A-26838</p>
+
       <div class="doc-credentials">
         <span class="cred-chip">🎓 BDS, MUHS Pune</span>
         <span class="cred-chip">📋 Registered Practitioner</span>
         <span class="cred-chip">📍 Karanja (Lad)</span>
       </div>
-      <p class="bio">Dr. Rehan Popte founded Popte Dental Care with a simple goal — to give families in Karanja (Lad) access to the same standard of dental treatment you'd expect in a big city, without the long travel or the high cost. Every patient is examined carefully and treated with a clear explanation of what's needed and why.</p>
-      <p class="bio">From a child's first check-up to a senior's denture fitting, Dr. Popte takes the time to make each visit calm and comfortable, using modern techniques and strict hygiene protocols at every step.</p>
+
+      <p class="bio">
+        Dr. Rehan Popte founded Popte Dental Care with a simple goal — to give families in Karanja (Lad) access to the same standard of dental treatment you'd expect in a big city, without the long travel or the high cost.
+      </p>
+
+      <p class="bio">
+        From a child's first check-up to a senior's denture fitting, Dr. Popte takes the time to make each visit calm and comfortable.
+      </p>
+
       <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:6px;">
         <a href="tel:+917775973578" class="btn btn-primary">Call the Clinic</a>
         <a href="#appointment" class="btn btn-outline">Book a Visit</a>
       </div>
     </div>
   </div>
-</section>
+</section>>
 
 <!-- Services -->
 <section class="pad" id="services" style="background:#fff;">
@@ -779,12 +797,10 @@
         </div>
         <div class="loc-row">
           <div class="icon-circle"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0F3D5C" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
-          <div><b>Clinic Hours</b><span>Monday – Saturday, 10:00 AM – 8:30 PM</span></div>
+          <div><b>Clinic Hours</b><span>Monday – Saturday, 10:00 AM – 2:00 PM & 4:00 PM – 9:00 PM</span></div>
         </div>
         <div class="loc-row">
-          <div class="icon-circle"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0F3D5C" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.902.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.908.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
-          <div><b>Phone</b><span>+91 77759 73578</span></div>
-        </div>
+          <div class="icon-circle"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0F3D5C" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.902.7 2.81a2 2 0 0 1-.45
         <div class="loc-cta">
           <a href="tel:+917775973578" class="btn btn-primary">Call Now</a>
           <a href="https://wa.me/917775973578" target="_blank" rel="noopener" class="btn btn-outline">WhatsApp</a>
@@ -826,7 +842,7 @@
           <li>+91 77759 73578</li>
           <li>Gadge Baba Chowk, Near Nagina Masjid</li>
           <li>Karanja (Lad), Maharashtra</li>
-          <li>Mon–Sat, 10 AM – 8:30 PM</li>
+          <li>Mon–Sat, 10 AM – 2:00 PM & 4:00 PM – 9:00 PM</li>
         </ul>
       </div>
     </div>
