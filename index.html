@@ -23,20 +23,27 @@
     --shadow: 0 20px 50px -20px rgba(15,61,92,0.25);
     --shadow-sm: 0 8px 24px -12px rgba(15,61,92,0.18);
   }
-  *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
+  *,*::before,*::after{box-sizing:border-box;}
+  *{margin:0;padding:0;}
+  html{
+    scroll-behavior:smooth;
+    overflow-x:hidden;
+  }
   body{
     font-family:'Inter',sans-serif;
     color:var(--ink);
     background:var(--white);
     line-height:1.6;
     -webkit-font-smoothing:antialiased;
+    width:100%;
     overflow-x:hidden;
   }
   h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-0.01em;color:var(--marine-deep);}
   a{text-decoration:none;color:inherit;}
   ul{list-style:none;}
-  img{max-width:100%;display:block;}
+  img,svg{max-width:100%;display:block;}
+  img{height:auto;}
+  button,input,select,textarea{font:inherit;}
   .eyebrow{
     font-family:'IBM Plex Mono',monospace;
     font-size:0.72rem;
@@ -55,6 +62,18 @@
   }
   .wrap{max-width:1180px;margin:0 auto;padding:0 28px;}
   section{position:relative;}
+  .wrap,
+  .hero .wrap,
+  .doctor .wrap,
+  .services-grid > *,
+  .why-grid > *,
+  .t-grid > *,
+  .appt-wrap > *,
+  .form-row > *,
+  .loc-wrap > *,
+  .footer-grid > *{
+    min-width:0;
+  }
 
   /* ---------- Reduced motion ---------- */
   @media (prefers-reduced-motion: reduce){
@@ -95,10 +114,12 @@
     background:rgba(255,255,255,0.92);
     backdrop-filter:blur(10px);
     border-bottom:1px solid var(--line);
+    overflow-x:hidden;
   }
   nav.wrap{
     display:flex;align-items:center;justify-content:space-between;
     padding:16px 28px;
+    overflow-x:hidden;
   }
   .brand{display:flex;align-items:center;gap:10px;}
   .brand-mark{
@@ -109,8 +130,28 @@
   }
   .brand-name{font-family:'Fraunces',serif;font-weight:600;font-size:1.18rem;color:var(--marine-deep);line-height:1.1;}
   .brand-sub{font-family:'IBM Plex Mono',monospace;font-size:0.62rem;letter-spacing:0.08em;color:var(--ink-soft);text-transform:uppercase;}
-  .nav-links{display:flex;gap:30px;align-items:center;}
-  .nav-links a{font-size:0.93rem;font-weight:500;color:var(--ink);position:relative;padding:4px 0;}
+  .nav-links{
+    position:fixed;
+    inset:73px 0 0 0;
+    width:100%;
+    background:#fff;
+    display:none;
+    flex-direction:column;
+    align-items:flex-start;
+    padding:30px 28px;
+    gap:22px;
+    overflow-y:auto;
+    overflow-x:hidden;
+    transform:translateX(100%);
+    transition:transform .3s ease;
+    will-change:transform;
+  }
+
+  .nav-links.open{
+    display:flex;
+    transform:translateX(0);
+  }
+  .nav-links a{display:inline-flex;align-items:center;font-size:0.93rem;font-weight:500;color:var(--ink);position:relative;padding:4px 0;}
   .nav-links a::after{
     content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--coral);
     transition:width .25s ease;
@@ -126,6 +167,7 @@
   }
   .btn-primary{background:var(--coral);color:#fff;box-shadow:0 10px 24px -8px rgba(255,122,89,0.55);}
   .btn-primary:hover{background:var(--coral-deep);transform:translateY(-2px);}
+  .btn:active{transform:translateY(0);}
   .btn-outline{background:transparent;color:var(--marine-deep);border:1.5px solid var(--marine-deep);}
   .btn-outline:hover{background:var(--marine-deep);color:#fff;transform:translateY(-2px);}
   .btn-ghost-white{background:rgba(255,255,255,0.14);color:#fff;border:1.5px solid rgba(255,255,255,0.4);}
@@ -265,6 +307,7 @@
   .why .wrap{position:relative;z-index:2;}
   .why .section-head h2{color:#fff;}
   .why .section-head p{color:#B9D2DE;}
+  .why > svg{max-width:none;pointer-events:none;}
   .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
   .why-card{
     background:rgba(255,255,255,0.06);
@@ -408,27 +451,21 @@
     .footer-grid{grid-template-columns:1fr 1fr;}
   }
   @media (max-width:720px){
-    .nav-links{
-      position:fixed;top:73px;left:0;right:0;bottom:0;
-      background:#fff;flex-direction:column;align-items:flex-start;
-      padding:30px 28px;gap:22px;
-      transform:translateX(100%);transition:transform .3s ease;
-      overflow-y:auto;
-    }
-    .nav-links.open{transform:translateX(0);}
-    .nav-links a{font-size:1.1rem;}
-    .menu-toggle{display:block;}
-    .nav .btn-primary{display:none;}
-    .topbar-left{gap:14px;}
-    .topbar .btn{display:none;}
-    section.pad{padding:60px 0;}
-    .services-grid{grid-template-columns:1fr;}
-    .why-grid{grid-template-columns:1fr;}
-    .form-row{grid-template-columns:1fr;}
-    .footer-grid{grid-template-columns:1fr;gap:28px;}
-    .sticky-cta{display:flex;}
-    body{padding-bottom:70px;}
-    .hero{padding-top:36px;}
+      .nav-links a{font-size:1.1rem;}
+      .menu-toggle{display:block;}
+      .nav .btn-primary{display:none;}
+      .topbar-left{gap:14px;}
+      .topbar .btn{display:none;}
+      section.pad{padding:60px 0;}
+      .services-grid{grid-template-columns:1fr;}
+      .why-grid{grid-template-columns:1fr;}
+      .form-row{grid-template-columns:1fr;}
+      .footer-grid{grid-template-columns:1fr;gap:28px;}
+      .sticky-cta{display:flex;}
+      body{padding-bottom:70px;}
+      .hero{padding-top:36px;}
+      .hero-arc{right:-4%;width:62%;}
+      .why > svg{right:0;top:12%;width:300px !important;}
   }
 </style>
 </head>
@@ -473,7 +510,7 @@
       <li style="margin-top:8px;"><a href="#appointment" class="btn btn-primary">Book Appointment</a></li>
     </ul>
     <a href="#appointment" class="btn btn-primary" style="margin-left:auto;">Book Appointment</a>
-    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+    <button type="button" class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0F3D5C" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
   </nav>
@@ -560,7 +597,7 @@
       </div>
     </div>
   </div>
-</section>>
+</section>
 
 <!-- Services -->
 <section class="pad" id="services" style="background:#fff;">
@@ -689,27 +726,27 @@
     <div class="faq-list" id="faqList">
 
       <div class="faq-item" data-open="false">
-        <button class="faq-q">Do I need an appointment, or can I walk in?<span class="plus"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0F3D5C" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <button type="button" class="faq-q">Do I need an appointment, or can I walk in?<span class="plus"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0F3D5C" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
         <div class="faq-a"><div class="faq-a-inner">Walk-ins are welcome, but booking an appointment through our form or WhatsApp helps us plan your visit and reduce your waiting time.</div></div>
       </div>
 
       <div class="faq-item" data-open="false">
-        <button class="faq-q">Is root canal treatment painful?<span class="plus"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0F3D5C" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <button type="button" class="faq-q">Is root canal treatment painful?<span class="plus"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0F3D5C" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
         <div class="faq-a"><div class="faq-a-inner">Modern root canal treatment is done under local anaesthesia, so the procedure itself is virtually painless. Most patients feel only mild sensitivity afterward.</div></div>
       </div>
 
       <div class="faq-item" data-open="false">
-        <button class="faq-q">Do you treat children?<span class="plus"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0F3D5C" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <button type="button" class="faq-q">Do you treat children?<span class="plus"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0F3D5C" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
         <div class="faq-a"><div class="faq-a-inner">Yes, we welcome patients of all ages, including children. We take extra care to keep young patients comfortable during their visit.</div></div>
       </div>
 
       <div class="faq-item" data-open="false">
-        <button class="faq-q">How much does a dental implant cost?<span class="plus"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0F3D5C" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <button type="button" class="faq-q">How much does a dental implant cost?<span class="plus"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0F3D5C" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
         <div class="faq-a"><div class="faq-a-inner">Implant cost depends on your specific case. Visit the clinic for a free consultation and Dr. Popte will explain the options and pricing clearly.</div></div>
       </div>
 
       <div class="faq-item" data-open="false">
-        <button class="faq-q">Do you accept emergency dental cases?<span class="plus"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0F3D5C" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <button type="button" class="faq-q">Do you accept emergency dental cases?<span class="plus"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0F3D5C" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
         <div class="faq-a"><div class="faq-a-inner">Yes. For urgent tooth pain or dental emergencies, call the clinic directly and we'll try to accommodate you as soon as possible.</div></div>
       </div>
 
@@ -800,7 +837,9 @@
           <div><b>Clinic Hours</b><span>Monday – Saturday, 10:00 AM – 2:00 PM & 4:00 PM – 9:00 PM</span></div>
         </div>
         <div class="loc-row">
-          <div class="icon-circle"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0F3D5C" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.902.7 2.81a2 2 0 0 1-.45
+          <div class="icon-circle"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0F3D5C" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.902.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.908.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+          <div><b>+91 77759 73578</b><span>Call for immediate assistance</span></div>
+        </div>
         <div class="loc-cta">
           <a href="tel:+917775973578" class="btn btn-primary">Call Now</a>
           <a href="https://wa.me/917775973578" target="_blank" rel="noopener" class="btn btn-outline">WhatsApp</a>
@@ -863,14 +902,34 @@
   // Mobile menu toggle
   const menuToggle = document.getElementById('menuToggle');
   const navLinks = document.getElementById('navLinks');
-  menuToggle.addEventListener('click', () => {
-    const isOpen = navLinks.classList.toggle('open');
-    menuToggle.setAttribute('aria-expanded', isOpen);
-  });
-  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  let navCloseTimer;
+
+  const openNav = () => {
+    clearTimeout(navCloseTimer);
+    navLinks.style.display = 'flex';
+    requestAnimationFrame(() => navLinks.classList.add('open'));
+    menuToggle.setAttribute('aria-expanded', 'true');
+  };
+
+  const closeNav = () => {
     navLinks.classList.remove('open');
     menuToggle.setAttribute('aria-expanded', 'false');
-  }));
+    navCloseTimer = window.setTimeout(() => {
+      if (!navLinks.classList.contains('open')) {
+        navLinks.style.display = 'none';
+      }
+    }, 300);
+  };
+
+  menuToggle.addEventListener('click', () => {
+    if (navLinks.classList.contains('open')) {
+      closeNav();
+    } else {
+      openNav();
+    }
+  });
+
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
 
   // FAQ accordion
   document.querySelectorAll('.faq-item').forEach(item => {
