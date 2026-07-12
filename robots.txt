@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://poptedental.in/sitemap.xml
+Host: poptedental.in

@@ -1,0 +1,18 @@
+{
+  "name": "Popte Dental Care",
+  "short_name": "Popte Dental",
+  "description": "Popte Dental Care in Karanja (Lad), Washim District, Maharashtra.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#0A2C43",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

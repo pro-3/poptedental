@@ -1,0 +1,179 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://poptedental.in/#website",
+      "url": "https://poptedental.in/",
+      "name": "Popte Dental Care",
+      "alternateName": "Dr. Rehan Popte Dental Clinic",
+      "description": "Popte Dental Care in Karanja (Lad), Washim District, Maharashtra.",
+      "publisher": { "@id": "https://poptedental.in/#organization" },
+      "inLanguage": "en-IN",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://poptedental.in/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": ["Organization", "LocalBusiness", "MedicalBusiness", "Dentist"],
+      "@id": "https://poptedental.in/#organization",
+      "name": "Popte Dental Care",
+      "alternateName": "Dr. Rehan Popte",
+      "url": "https://poptedental.in/",
+      "telephone": "+91 77759 73578",
+      "priceRange": "₹₹",
+      "image": "https://poptedental.in/doctor.webp",
+      "logo": { "@id": "https://poptedental.in/#logo" },
+      "founder": { "@id": "https://poptedental.in/#doctor" },
+      "employee": { "@id": "https://poptedental.in/#doctor" },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Gadge Baba Chowk, Near Nagina Masjid",
+        "addressLocality": "Karanja Lad",
+        "addressRegion": "Washim District, Maharashtra",
+        "postalCode": "444105",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 20.4820707,
+        "longitude": 77.489234
+      },
+      "hasMap": "https://maps.google.com/?q=Gadge+Baba+Chowk+Near+Nagina+Masjid+Karanja+Lad+Maharashtra",
+      "areaServed": [
+        { "@type": "City", "name": "Karanja Lad" },
+        { "@type": "AdministrativeArea", "name": "Washim District" },
+        { "@type": "AdministrativeArea", "name": "Maharashtra" }
+      ],
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          "opens": "10:00",
+          "closes": "21:00"
+        }
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91 77759 73578",
+        "contactType": "customer service",
+        "areaServed": "IN",
+        "availableLanguage": ["en", "hi", "mr"]
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Dental Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "General Consultation", "serviceType": "Dental examination", "areaServed": "Karanja Lad" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Root Canal Treatment", "serviceType": "Endodontic treatment", "areaServed": "Karanja Lad" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Dental Implants", "serviceType": "Tooth replacement", "areaServed": "Karanja Lad" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tooth Extraction", "serviceType": "Oral surgery", "areaServed": "Karanja Lad" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Teeth Cleaning", "serviceType": "Ultrasonic scaling", "areaServed": "Karanja Lad" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cosmetic Tooth Filling", "serviceType": "Restorative dentistry", "areaServed": "Karanja Lad" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Teeth Whitening", "serviceType": "Cosmetic dentistry", "areaServed": "Karanja Lad" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Dentures", "serviceType": "Prosthodontics", "areaServed": "Karanja Lad" } }
+        ]
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://poptedental.in/#doctor",
+      "name": "Dr. Rehan Popte",
+      "jobTitle": "Dentist",
+      "description": "BDS (MUHS, Pune) and registered practitioner at Popte Dental Care.",
+      "worksFor": { "@id": "https://poptedental.in/#organization" },
+      "url": "https://poptedental.in/",
+      "image": "https://poptedental.in/doctor.webp"
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://poptedental.in/#image",
+      "url": "https://poptedental.in/doctor.webp",
+      "contentUrl": "https://poptedental.in/doctor.webp",
+      "width": 1086,
+      "height": 1448,
+      "caption": "Dr. Rehan Popte at Popte Dental Care in Karanja Lad"
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://poptedental.in/#logo",
+      "url": "https://poptedental.in/favicon.svg",
+      "contentUrl": "https://poptedental.in/favicon.svg",
+      "width": 512,
+      "height": 512,
+      "caption": "Popte Dental Care logo"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://poptedental.in/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://poptedental.in/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://poptedental.in/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Do I need an appointment, or can I walk in?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Walk-ins are welcome, but booking an appointment through our form or WhatsApp helps us plan your visit and reduce your waiting time."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is root canal treatment painful?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Modern root canal treatment is done under local anaesthesia, so the procedure itself is virtually painless. Most patients feel only mild sensitivity afterward."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you treat children?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, we welcome patients of all ages, including children. We take extra care to keep young patients comfortable during their visit."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does a dental implant cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Implant cost depends on your specific case. Visit the clinic for a consultation and Dr. Popte will explain the options and pricing clearly."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you accept emergency dental cases?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. For urgent tooth pain or dental emergencies, call the clinic directly and we'll try to accommodate you as soon as possible."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://poptedental.in/#webpage",
+      "url": "https://poptedental.in/",
+      "name": "Popte Dental Care | Dentist in Karanja (Lad), Washim District | Dr. Rehan Popte",
+      "description": "Affordable, modern dental treatment in Karanja (Lad), Washim District, Maharashtra.",
+      "isPartOf": { "@id": "https://poptedental.in/#website" },
+      "about": { "@id": "https://poptedental.in/#organization" },
+      "primaryImageOfPage": { "@id": "https://poptedental.in/#image" },
+      "breadcrumb": { "@id": "https://poptedental.in/#breadcrumb" },
+      "inLanguage": "en-IN"
+    }
+  ]
+}
